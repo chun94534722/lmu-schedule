@@ -1,0 +1,7 @@
+﻿# Publish only the page itself (GitHub Pages). Everything else stays local.
+*
+!.gitignore
+!.nojekyll
+!index.html
+!data.js
+!status.js

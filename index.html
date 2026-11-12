@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>르망 얼티밋 장거리 일정</title>
+<style>
+/* Base reset that the original artifact wrapper used to provide. */
+:root { color-scheme: light; }
+body { margin: 0; padding: 0; }
+img { max-width: 100%; }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Saira+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: one pit-wall timing sheet. Dark band = live information, ruled rows = series, chips = sessions. */
+:root {
+  --bg: #E3E8EE;
+  --sheet: #F5F7FA;
+  --sheet-2: #E9EEF3;
+  --ink: #131A23;
+  --ink-2: #465261;
+  --ink-3: #5F6A77;
+  --line: #C3CCD6;
+  --line-strong: #8A96A4;
+  --bar: #1F2C3B;
+  --bar-ink: #EDF2F7;
+  --bar-ink-2: #AEBBCA;
+  --bar-line: #3A4A5C;
+  --btn-on-bg: #1F2C3B;
+  --btn-on-fg: #F5F7FA;
+  --link: #14509F;
+  --focus: #14509F;
+  --hy-bg: #C4152B;
+  --hy-fg: #FFFFFF;
+  --p2-bg: #1557B0;
+  --p2-fg: #FFFFFF;
+  --gt3-bg: #B34700;
+  --gt3-fg: #FFFFFF;
+  --p3-bg: #6B2FB5;
+  --p3-fg: #FFFFFF;
+  --neutral-bg: #D5DCE4;
+  --neutral-fg: #2A3542;
+  --rec-bg: #0B6B47;
+  --rec-fg: #FFFFFF;
+  --flag-bg: #FFE680;
+  --flag-fg: #2B2400;
+  --eve-bg: #D3E2F4;
+  --eve-fg: #0F2A4D;
+  --wx-sun: #C27400;
+  --wx-cloud: #DCE3EA;
+  --wx-cloud-2: #66727F;
+  --wx-rain: #1557B0;
+  --wx-rain-bg: #D3E2F6;
+  --wx-bar-sun: #FFC247;
+  --wx-bar-cloud: #D5DDE6;
+  --wx-bar-cloud-2: #8E9BA9;
+  --wx-bar-rain: #9CC8FF;
+  --wx-bar-rain-bg: #23466F;
+
+  --f-ko: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --f-digit: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11181F;
+    --sheet: #18212B;
+    --sheet-2: #202B37;
+    --ink: #E6ECF2;
+    --ink-2: #A4B1BF;
+    --ink-3: #8E9BA9;
+    --line: #2E3B49;
+    --line-strong: #4E5E70;
+    --bar: #2A3A4D;
+    --bar-ink: #F0F4F8;
+    --bar-ink-2: #B7C4D2;
+    --bar-line: #46586E;
+    --btn-on-bg: #D9E2EB;
+    --btn-on-fg: #131A23;
+    --link: #8DBDFF;
+    --focus: #8DBDFF;
+    --hy-bg: #5C141D;
+    --hy-fg: #FFB9BD;
+    --p2-bg: #12335F;
+    --p2-fg: #AFD0FF;
+    --gt3-bg: #5A2C06;
+    --gt3-fg: #FFC48F;
+    --p3-bg: #39216B;
+    --p3-fg: #D6BFFF;
+    --neutral-bg: #2C3947;
+    --neutral-fg: #CFD9E3;
+    --rec-bg: #2BB57E;
+    --rec-fg: #06251A;
+    --flag-bg: #4C4007;
+    --flag-fg: #FFE680;
+    --eve-bg: #243A53;
+    --eve-fg: #D7E7FA;
+    --wx-sun: #FFC247;
+    --wx-cloud: #C3CDD8;
+    --wx-cloud-2: #7C8A99;
+    --wx-rain: #8DBDFF;
+    --wx-rain-bg: #1C3550;
+    --wx-bar-sun: #FFC247;
+    --wx-bar-cloud: #D5DDE6;
+    --wx-bar-cloud-2: #8E9BA9;
+    --wx-bar-rain: #A9D0FF;
+    --wx-bar-rain-bg: #2B5280;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11181F;
+  --sheet: #18212B;
+  --sheet-2: #202B37;
+  --ink: #E6ECF2;
+  --ink-2: #A4B1BF;
+  --ink-3: #8E9BA9;
+  --line: #2E3B49;
+  --line-strong: #4E5E70;
+  --bar: #2A3A4D;
+  --bar-ink: #F0F4F8;
+  --bar-ink-2: #B7C4D2;
+  --bar-line: #46586E;
+  --btn-on-bg: #D9E2EB;
+  --btn-on-fg: #131A23;
+  --link: #8DBDFF;
+  --focus: #8DBDFF;
+  --hy-bg: #5C141D;
+  --hy-fg: #FFB9BD;
+  --p2-bg: #12335F;
+  --p2-fg: #AFD0FF;
+  --gt3-bg: #5A2C06;
+  --gt3-fg: #FFC48F;
+  --p3-bg: #39216B;
+  --p3-fg: #D6BFFF;
+  --neutral-bg: #2C3947;
+  --neutral-fg: #CFD9E3;
+  --rec-bg: #2BB57E;
+  --rec-fg: #06251A;
+  --flag-bg: #4C4007;
+  --flag-fg: #FFE680;
+  --eve-bg: #243A53;
+  --eve-fg: #D7E7FA;
+  --wx-sun: #FFC247;
+  --wx-cloud: #C3CDD8;
+  --wx-cloud-2: #7C8A99;
+  --wx-rain: #8DBDFF;
+  --wx-rain-bg: #1C3550;
+  --wx-bar-sun: #FFC247;
+  --wx-bar-cloud: #D5DDE6;
+  --wx-bar-cloud-2: #8E9BA9;
+  --wx-bar-rain: #A9D0FF;
+  --wx-bar-rain-bg: #2B5280;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-ko);
+  font-size: 15px;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+h1, h2, h3, h4, p, ul, ol { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: var(--link); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.page {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 48px;
+}
+.page-in {
+  max-width: 1120px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+/* Header */
+.top { display: grid; gap: 2px; }
+.top h1 { font-size: 1.75rem; line-height: 1.25; font-weight: 700; }
+.top .sub { color: var(--ink-2); font-size: 0.93rem; }
+
+/* Live strip */
+.strip {
+  background: var(--bar);
+  color: var(--bar-ink);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.nx { padding: 12px 16px 14px; display: grid; gap: 2px; min-width: 0; align-content: start; }
+.nx + .nx { border-left: 1px solid var(--bar-line); }
+.nx-label { font-size: 0.8rem; font-weight: 600; color: var(--bar-ink-2); display: flex; flex-wrap: wrap; gap: 0 8px; }
+.nx-label span { font-weight: 400; }
+.nx-name { font-size: 1rem; font-weight: 600; line-height: 1.3; }
+.nx-name.latin { font-family: var(--f-digit); font-size: 1.2rem; }
+.nx-track { font-size: 0.88rem; color: var(--bar-ink-2); }
+.nx-when { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; margin-top: 2px; }
+.nx-when .d { font-size: 1rem; font-weight: 500; }
+.nx-when .t { font-family: var(--f-digit); font-size: 2.1rem; font-weight: 700; line-height: 1.1; }
+.nx-cd { font-size: 0.88rem; color: var(--bar-ink-2); }
+.nx-cd b { color: var(--bar-ink); font-weight: 600; }
+.nx-then { font-size: 0.84rem; color: var(--bar-ink-2); margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--bar-line); }
+.nx-then b { color: var(--bar-ink); font-weight: 600; }
+.nx-none { font-size: 0.95rem; }
+
+/* Filters */
+.filters { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: flex-end; }
+.fgroup { display: grid; gap: 4px; min-width: 0; }
+.fgroup-label { font-size: 0.78rem; font-weight: 600; color: var(--ink-2); }
+.fbtns { display: flex; flex-wrap: wrap; gap: 4px; }
+.fbtn {
+  font-family: var(--f-ko);
+  font-size: 0.88rem;
+  font-weight: 500;
+  min-height: 38px;
+  padding: 4px 12px;
+  background: var(--sheet);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.12s, color 0.12s;
+}
+.fbtn:hover:not(:disabled) { background: var(--sheet-2); }
+.fbtn[aria-pressed="true"] { background: var(--btn-on-bg); color: var(--btn-on-fg); border-color: var(--btn-on-bg); }
+.fbtn[aria-pressed="true"]:hover:not(:disabled) { background: var(--btn-on-bg); }
+.fbtn:disabled { color: var(--ink-3); background: transparent; border-color: var(--line); border-style: dashed; cursor: not-allowed; }
+
+/* Section heads */
+.sec { display: grid; gap: 10px; min-width: 0; }
+.sec > h2 { font-size: 1.2rem; font-weight: 700; line-height: 1.3; }
+.lede { display: grid; gap: 2px; color: var(--ink-2); font-size: 0.9rem; max-width: 70ch; }
+
+/* Weeks */
+.plan { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.week { background: var(--sheet); border: 1px solid var(--line); min-width: 0; }
+.wk-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  padding: 8px 14px;
+  background: var(--sheet-2);
+  border-bottom: 1px solid var(--line);
+}
+.wk-head h3 { font-size: 1rem; font-weight: 600; line-height: 1.35; min-width: 0; }
+.wk-badge { font-size: 0.78rem; font-weight: 600; padding: 1px 8px; border: 1px solid var(--line-strong); color: var(--ink-2); }
+.week.current { border-color: var(--bar); }
+.week.current .wk-head { background: var(--bar); color: var(--bar-ink); border-bottom-color: var(--bar); }
+.week.current .wk-badge { background: var(--flag-bg); color: var(--flag-fg); border-color: var(--flag-bg); }
+.flag { background: var(--flag-bg); color: var(--flag-fg); padding: 7px 14px; font-size: 0.9rem; font-weight: 500; }
+.subhead {
+  padding: 4px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--line);
+}
+.row + .subhead { border-top: 1px solid var(--line-strong); }
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 15.5rem) minmax(0, 1fr);
+  gap: 8px 18px;
+  padding: 11px 14px;
+}
+.row + .row { border-top: 1px solid var(--line); }
+.row-meta { display: grid; gap: 3px; min-width: 0; align-content: start; }
+.classes { display: flex; flex-wrap: wrap; gap: 3px; }
+.cls {
+  font-family: var(--f-digit);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.45;
+  padding: 0 6px;
+  border-radius: 1px;
+}
+.cls.hy { background: var(--hy-bg); color: var(--hy-fg); }
+.cls.p2, .cls.wp2 { background: var(--p2-bg); color: var(--p2-fg); }
+.cls.gt3 { background: var(--gt3-bg); color: var(--gt3-fg); }
+.cls.p3 { background: var(--p3-bg); color: var(--p3-fg); }
+.cls.gmr { background: var(--neutral-bg); color: var(--neutral-fg); font-family: var(--f-ko); font-size: 0.74rem; font-weight: 500; line-height: 1.6; }
+.sname { font-size: 1rem; font-weight: 600; line-height: 1.3; }
+.sname.latin { font-family: var(--f-digit); font-size: 1.18rem; }
+.track { font-size: 0.93rem; font-weight: 500; }
+.req { font-size: 0.8rem; color: var(--ink-2); }
+.row-slots { display: grid; gap: 5px; min-width: 0; align-content: start; }
+.day { display: grid; grid-template-columns: 4.9rem minmax(0, 1fr); gap: 8px; align-items: start; }
+.day-label { font-size: 0.86rem; font-weight: 500; color: var(--ink-2); line-height: 1.9; }
+.slots { display: flex; flex-wrap: wrap; gap: 4px; min-width: 0; }
+.slot {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 5px;
+  padding: 1px 7px;
+  background: var(--sheet-2);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.slot .t { font-family: var(--f-digit); font-size: 1.06rem; font-weight: 700; }
+.slot .e { font-family: var(--f-digit); font-size: 0.84rem; font-weight: 500; color: var(--ink-2); }
+.slot .tag { font-size: 0.72rem; font-weight: 600; }
+.slot.past { background: transparent; border-style: dashed; color: var(--ink-3); }
+.slot.past .e { color: var(--ink-3); }
+.slot.next { border: 2px solid var(--ink); padding: 0 6px; }
+.slot.rec { background: var(--rec-bg); color: var(--rec-fg); border-color: var(--rec-bg); }
+.slot.rec .e { color: var(--rec-fg); }
+.slot.rec.next { border-color: var(--ink); }
+.slot.rec.past { background: transparent; color: var(--ink-3); border-color: var(--line); }
+.slot.rec.past .e { color: var(--ink-3); }
+.row-empty, .week-empty { font-size: 0.88rem; color: var(--ink-2); }
+.row-more { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 0.84rem; color: var(--ink-2); }
+.more-btn { font: inherit; font-weight: 600; padding: 1px 8px; background: transparent; color: var(--ink); border: 1px solid var(--line-strong); cursor: pointer; }
+.more-btn:hover { background: var(--sheet-2); }
+.more-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+.week-empty { padding: 11px 14px; }
+.window { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.window-date { font-size: 1rem; font-weight: 600; }
+.pending { font-size: 0.8rem; font-weight: 600; padding: 1px 8px; background: var(--flag-bg); color: var(--flag-fg); }
+.row.past .window-date, .row.past .sname, .row.past .track { color: var(--ink-3); }
+.row.past .pending { display: none; }
+.dec-note { padding: 9px 14px; font-size: 0.9rem; border-top: 1px solid var(--line-strong); }
+
+/* Weather from the in-game Event Overview: one line per session, 5 glyphs in time order. */
+.wx { display: grid; gap: 3px; min-width: 0; padding-bottom: 7px; margin-bottom: 1px; border-bottom: 1px dashed var(--line); font-size: 0.84rem; color: var(--ink-2); }
+.wx-src { font-size: 0.76rem; font-weight: 600; }
+.wx-list { display: grid; gap: 2px; }
+.wx-line { display: grid; grid-template-columns: 5.4rem auto minmax(0, 1fr); align-items: center; gap: 0 8px; }
+.wx-line.race .wx-ses { color: var(--ink); font-weight: 600; }
+.wx-rr { font-size: 0.8rem; min-width: 0; }
+.wx-hint { padding-left: calc(5.4rem + 8px); color: var(--wx-rain); font-weight: 600; }
+.wx-note { font-size: 0.8rem; max-width: 70ch; }
+.wx-none { font-size: 0.78rem; color: var(--ink-3); }
+.wx-icons { display: inline-flex; gap: 2px; }
+.wxi { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 3px; flex: none; }
+.wxi svg { width: 20px; height: 20px; display: block; overflow: visible; }
+.wxi.wet { background: var(--wx-rain-bg); box-shadow: inset 0 0 0 1px var(--wx-rain); }
+.wx-sun, .wx-bolt { fill: var(--wx-sun); }
+.wx-ray { fill: none; stroke: var(--wx-sun); stroke-width: 1.9; stroke-linecap: round; }
+.wx-cl { fill: var(--wx-cloud); stroke: var(--wx-cloud-2); stroke-width: 1.5; stroke-linejoin: round; }
+.wx-cd { fill: var(--wx-cloud-2); stroke: var(--wx-cloud-2); stroke-width: 1.5; stroke-linejoin: round; }
+.wx-drop { fill: none; stroke: var(--wx-rain); stroke-width: 2; stroke-linecap: round; }
+/* The live strip is dark in both themes, so glyphs there use the bar palette. */
+.nx { --wx-sun: var(--wx-bar-sun); --wx-cloud: var(--wx-bar-cloud); --wx-cloud-2: var(--wx-bar-cloud-2); --wx-rain: var(--wx-bar-rain); --wx-rain-bg: var(--wx-bar-rain-bg); }
+.nx-wx { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; font-size: 0.84rem; color: var(--bar-ink-2); margin-top: 2px; }
+.nx-wet { color: var(--wx-rain); font-weight: 600; }
+
+/* Timetable */
+.tt-scroll { overflow-x: auto; background: var(--sheet); border: 1px solid var(--line); }
+.tt { border-collapse: collapse; width: 100%; min-width: 46rem; }
+.tt th, .tt td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 6px 6px; vertical-align: top; text-align: center; }
+.tt thead th { background: var(--sheet-2); font-size: 0.86rem; font-weight: 600; }
+.tt thead small { display: block; font-size: 0.7rem; font-weight: 400; color: var(--ink-2); line-height: 1.3; }
+.tt tbody th { position: sticky; left: 0; background: var(--sheet); text-align: left; min-width: 6.4rem; max-width: 7.4rem; }
+.tt thead th:first-child { position: sticky; left: 0; text-align: left; }
+.tt-name { display: block; font-family: var(--f-digit); font-size: 1.06rem; font-weight: 600; line-height: 1.2; }
+.tt-name.ko { font-family: var(--f-ko); font-size: 0.9rem; }
+.tt-sub { display: block; font-size: 0.74rem; font-weight: 400; color: var(--ink-2); }
+.tt-t { display: block; font-family: var(--f-digit); font-size: 0.98rem; font-weight: 500; line-height: 1.4; color: var(--ink-2); }
+.tt-t.eve { background: var(--eve-bg); color: var(--eve-fg); font-weight: 700; }
+.tt-none { color: var(--ink-3); }
+.tt-line { max-width: 70ch; font-weight: 500; }
+
+/* Notes */
+.prose { display: grid; gap: 6px; max-width: 70ch; }
+.bullets { display: grid; gap: 6px; max-width: 72ch; }
+.bullets li { padding-left: 14px; position: relative; }
+.bullets li::before { content: ""; position: absolute; left: 0; top: 0.68em; width: 6px; height: 2px; background: var(--line-strong); }
+.sources { display: grid; gap: 4px; font-size: 0.9rem; }
+
+@media (max-width: 720px) {
+  .strip { grid-template-columns: minmax(0, 1fr); }
+  .nx + .nx { border-left: 0; border-top: 1px solid var(--bar-line); }
+  .row { grid-template-columns: minmax(0, 1fr); padding-inline: 10px; }
+  .slot { padding: 1px 5px; }
+  .slot.next { padding: 0 4px; }
+  .top h1 { font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+</style>
+<style>
+/* Local-page additions: status bands, change note, fatal message, auto-hidden old weeks. */
+.bands { display: grid; gap: 6px; }
+.band { background: var(--flag-bg); color: var(--flag-fg); padding: 9px 14px; font-size: 0.92rem; font-weight: 500; }
+.band.fatal { border-left: 4px solid var(--flag-fg); display: grid; gap: 4px; }
+.band.fatal b { font-weight: 700; }
+.top .chg { color: var(--ink-2); font-size: 0.84rem; }
+.app { display: contents; }
+.stale { display: none !important; }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="page-in">
+
+    <div class="bands" id="bands" role="status" hidden></div>
+
+    <header class="top">
+      <h1>르망 얼티밋 장거리 일정</h1>
+      <p class="sub" id="sub">80분 이상 · KST(UTC+9)</p>
+      <p class="chg" id="change-note" hidden></p>
+    </header>
+
+    <div class="band fatal" id="fatal" role="alert" hidden></div>
+
+    <div class="app" id="app">
+
+    <section class="strip" aria-label="다음 일정">
+      <div class="nx" id="next-solo"></div>
+      <div class="nx" id="next-team"></div>
+    </section>
+
+    <section class="filters" aria-label="일정 필터">
+      <div class="fgroup" role="group" aria-labelledby="f-mode-label">
+        <span class="fgroup-label" id="f-mode-label">보기</span>
+        <div class="fbtns">
+          <button type="button" class="fbtn" id="mode-all" data-mode="all" aria-pressed="true">전체</button>
+          <button type="button" class="fbtn" id="mode-solo" data-mode="solo" aria-pressed="false">솔로</button>
+          <button type="button" class="fbtn" id="mode-team" data-mode="team" aria-pressed="false">팀</button>
+        </div>
+      </div>
+      <div class="fgroup" role="group" aria-labelledby="f-time-label">
+        <span class="fgroup-label" id="f-time-label">시간대</span>
+        <div class="fbtns">
+          <button type="button" class="fbtn" id="evening" aria-pressed="false">솔로 저녁만(17~23시)</button>
+        </div>
+      </div>
+      <div class="fgroup" role="group" aria-labelledby="f-series-label">
+        <span class="fgroup-label" id="f-series-label">시리즈</span>
+        <div class="fbtns">
+          <button type="button" class="fbtn" id="s-americas" data-series="americas" aria-pressed="true">Americas</button>
+          <button type="button" class="fbtn" id="s-proto" data-series="proto" aria-pressed="true">Prototype</button>
+          <button type="button" class="fbtn" id="s-gt3" data-series="gt3" aria-pressed="true" title="LMGT3가 달리는 레이스를 모두 표시합니다">LMGT3</button>
+          <button type="button" class="fbtn" id="s-gmr" data-series="gmr" aria-pressed="true">GMR</button>
+          <button type="button" class="fbtn" id="s-weekly" data-series="weekly" aria-pressed="true">WEC Weekly</button>
+          <button type="button" class="fbtn" id="s-team" data-series="team" aria-pressed="true">팀 챔피언십</button>
+          <button type="button" class="fbtn" id="s-special" data-series="special" aria-pressed="true">스페셜 이벤트</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="h-plan">
+      <h2 id="h-plan">주차별 계획</h2>
+      <div class="lede" id="plan-lede"></div>
+      <div class="plan" id="plan"></div>
+    </section>
+
+    <section class="sec" aria-labelledby="h-tt">
+      <h2 id="h-tt">고정 주간 시간표</h2>
+      <p class="lede">KST 기준이고, 강조한 시각은 17~23시 저녁 슬롯입니다.</p>
+      <div class="tt-scroll" id="tt-scroll" tabindex="0" role="region" aria-labelledby="h-tt">
+        <table class="tt">
+          <thead><tr id="tt-head"></tr></thead>
+          <tbody id="tt-body"></tbody>
+        </table>
+      </div>
+      <p class="tt-line" id="tt-line"></p>
+    </section>
+
+    <section class="sec" id="sec-team" aria-labelledby="h-team">
+      <h2 id="h-team">팀 주행 안내</h2>
+      <div class="prose" id="team-guide"></div>
+    </section>
+
+    <section class="sec" id="sec-check" aria-labelledby="h-check">
+      <h2 id="h-check">확인이 필요한 부분</h2>
+      <ul class="bullets" id="checks"></ul>
+    </section>
+
+    <section class="sec" id="sec-src" aria-labelledby="h-src">
+      <h2 id="h-src">출처</h2>
+      <ul class="sources" id="sources"></ul>
+    </section>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="data.js" charset="utf-8"></script>
+<!-- status.js is written by the scheduled runner and may be absent; the page works without it. -->
+<script src="status.js" charset="utf-8"></script>
+<script>
+/* PURE:START */
+/* Pure scheduling logic: no DOM, no globals except the constants below. Shared with check-data.mjs. */
+const MIN = 60000, HOUR = 3600000, DAY = 86400000, WEEK = 7 * DAY;
+const KST_HOURS = 9, KST_OFFSET = KST_HOURS * HOUR;
+const KO_DAY = ['일', '월', '화', '수', '목', '금', '토'];
+const WD_NAMES = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+const SUN = 0, MON = 1, TUE = 2, WED = 3, THU = 4, FRI = 5, SAT = 6;
+const STALE_WEEK_GRACE = 0; // hide a week as soon as it ends (user request 2026-11-12)
+
+const CLASS_LABEL = { hy: 'Hypercar', gt3: 'LMGT3', p2: 'ELMS LMP2', wp2: 'WEC LMP2', p3: 'LMP3', gmr: 'Genesis GMR-001 고정 세팅' };
+
+/* Weeks are numbered per season: week n starts at week1Start + (n - 1) weeks. */
+function seasonT0(season) { return Date.parse(season.week1Start); }
+function weekStart(season, n) { return seasonT0(season) + (n - 1) * WEEK; }
+function weekEnd(season, n) { return weekStart(season, n + 1); }
+function weekOf(season, ms) { return Math.floor((ms - seasonT0(season)) / WEEK) + 1; }
+function seasonStart(season) { return weekStart(season, 1); }
+function seasonEnd(season) { return weekEnd(season, season.weekCount); }
+
+function makeSlot(season, s, t) {
+  const week = weekOf(season, t);
+  return { season: season.id, series: s.id, kind: s.kind, classes: s.classes, def: s, week, t, end: t + (s.lead + s.len) * MIN, track: s.tracks[week] };
+}
+
+/* All slots of one series inside the season's shown weeks: UTC weekly rule plus one-off starts. */
+function seriesSlots(season, s) {
+  const shown = season.shownWeeks;
+  const from = weekStart(season, Math.min.apply(null, shown));
+  const to = weekEnd(season, Math.max.apply(null, shown));
+  const times = new Set();
+  if (s.rule) {
+    for (let day = Math.floor(from / DAY) * DAY; day < to; day += DAY) {
+      const hours = s.rule[WD_NAMES[new Date(day).getUTCDay()]];
+      if (hours) hours.forEach(h => times.add(day + h * HOUR));
+    }
+  }
+  if (s.oneOff) s.oneOff.forEach(iso => times.add(Date.parse(iso)));
+  return Array.from(times)
+    .filter(t => {
+      if (!(t >= from && t < to)) return false;
+      const w = weekOf(season, t);
+      return shown.includes(w) && s.tracks[w] !== undefined;
+    })
+    .sort((a, b) => a - b)
+    .map(t => makeSlot(season, s, t));
+}
+function seasonSlots(season) {
+  return season.series.flatMap(s => seriesSlots(season, s));
+}
+function allSlots(data) {
+  return data.seasons.flatMap(seasonSlots).sort((a, b) => a.t - b.t);
+}
+
+/* Week sections across all seasons, in time order. */
+function weekSections(data) {
+  return data.seasons
+    .flatMap(season => season.shownWeeks.map(n => ({ season, week: n, start: weekStart(season, n), end: weekEnd(season, n) })))
+    .sort((a, b) => a.start - b.start);
+}
+function isStaleWeek(end, now) { return now >= end + STALE_WEEK_GRACE; }
+
+/* Timetable season: the one running now, else the next to start, else the last to end. */
+function pickTimetableSeason(seasons, now) {
+  const running = seasons.find(se => now >= seasonStart(se) && now < seasonEnd(se));
+  if (running) return running;
+  const upcoming = seasons.filter(se => seasonStart(se) > now).sort((a, b) => seasonStart(a) - seasonStart(b));
+  if (upcoming.length) return upcoming[0];
+  return seasons.slice().sort((a, b) => seasonEnd(b) - seasonEnd(a))[0];
+}
+
+/* KST formatting by UTC+9 arithmetic, independent of the viewer's timezone. */
+function kstParts(ms) {
+  const d = new Date(ms + KST_OFFSET);
+  return { month: d.getUTCMonth() + 1, date: d.getUTCDate(), wd: d.getUTCDay(), hour: d.getUTCHours(), minute: d.getUTCMinutes() };
+}
+function pad2(n) { return String(n).padStart(2, '0'); }
+function fmtMd(ms) { const p = kstParts(ms); return p.month + '/' + p.date; }
+function fmtDate(ms) { const p = kstParts(ms); return p.month + '/' + p.date + ' (' + KO_DAY[p.wd] + ')'; }
+function fmtTime(ms) { const p = kstParts(ms); return pad2(p.hour) + ':' + pad2(p.minute); }
+function fmtKst(ms) { return fmtDate(ms) + ' ' + fmtTime(ms); }
+function kstDayKey(ms) { return Math.floor((ms + KST_OFFSET) / DAY); }
+function endLabel(slot) {
+  const diff = kstDayKey(slot.end) - kstDayKey(slot.t);
+  return fmtTime(slot.end) + (diff > 0 ? '+' + diff : '');
+}
+function isEvening(ms) { const h = kstParts(ms).hour; return h >= 17 && h <= 23; }
+function isRecommended(slot, rec) {
+  if (!rec) return false;
+  const p = kstParts(slot.t);
+  return slot.series === rec.series && WD_NAMES[p.wd] === rec.kstWeekday && pad2(p.hour) + ':' + pad2(p.minute) === rec.kstTime;
+}
+/* Weekly turnover in KST, taken from the season's week1Start. */
+function turnover(season) {
+  const ms = seasonT0(season);
+  return { wd: kstParts(ms).wd, time: fmtTime(ms) };
+}
+
+/* Calendar-only labels for Special Events: these dates carry no start time. */
+function isoDayKey(iso) { return Date.parse(iso + 'T00:00:00Z') / DAY; }
+function fmtIsoDate(iso) {
+  const d = new Date(iso + 'T00:00:00Z');
+  return (d.getUTCMonth() + 1) + '/' + d.getUTCDate() + ' (' + KO_DAY[d.getUTCDay()] + ')';
+}
+function isoMonth(iso) { return new Date(iso + 'T00:00:00Z').getUTCMonth() + 1; }
+function specialWeek(season, sp) { return weekOf(season, Date.parse(sp.start + 'T12:00:00Z')); }
+/* The first season whose shown weeks contain the special, or null (goes to the trailing section). */
+function placeSpecial(seasons, sp) {
+  for (const season of seasons) {
+    const w = specialWeek(season, sp);
+    if (season.shownWeeks.includes(w)) return { season, week: w };
+  }
+  return null;
+}
+function specialBadge(sp) { return sp.badge === undefined ? '슬롯 미공개' : sp.badge; }
+
+/* Weekly pattern in KST: map of KST weekday -> sorted KST hours. */
+function weeklyPattern(s) {
+  const cols = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] };
+  Object.keys(s.rule || {}).forEach(name => {
+    const wd = WD_NAMES.indexOf(name);
+    s.rule[name].forEach(h => {
+      const total = h + KST_HOURS;
+      cols[(wd + Math.floor(total / 24)) % 7].push(total % 24);
+    });
+  });
+  Object.keys(cols).forEach(k => cols[k].sort((a, b) => a - b));
+  return cols;
+}
+
+function fmtDuration(min) {
+  const h = Math.floor(min / 60), m = min % 60;
+  return (h ? h + '시간' : '') + (h && m ? ' ' : '') + (m ? m + '분' : '');
+}
+function lenLabel(s) { return s.len >= 360 ? fmtDuration(s.len) : s.len + '분'; }
+function countdown(diff) {
+  const total = Math.max(0, Math.ceil(diff / MIN));
+  const d = Math.floor(total / 1440), h = Math.floor((total % 1440) / 60), m = total % 60;
+  if (d) return d + '일 ' + h + '시간 남음';
+  if (h) return h + '시간 ' + m + '분 남음';
+  return m + '분 남음';
+}
+
+/* The LMGT3 button keeps every race LMGT3 cars run in, even when that race's own series is off. */
+function seriesShown(st, id, classes) {
+  if (st.series[id] !== false) return true;
+  return st.series.gt3 !== false && st.mode !== 'team' && classes.includes('gt3');
+}
+function soloQueue(now, slots, st) {
+  return slots.filter(s => s.kind === 'solo' && s.t > now && seriesShown(st, s.series, s.classes) && (!st.evening || isEvening(s.t)));
+}
+/* Upcoming team items in order. A Special Event sorts by its first calendar day only. */
+function teamQueue(now, slots, specials, st) {
+  const today = kstDayKey(now);
+  const items = [];
+  slots.filter(s => s.kind === 'team' && s.t > now && seriesShown(st, s.series, s.classes)).forEach(s => items.push({ type: 'round', sort: s.t, slot: s }));
+  specials.filter(sp => seriesShown(st, 'special', sp.classes) && isoDayKey(sp.end) >= today).forEach(sp => {
+    items.push({ type: 'special', sort: Date.parse(sp.start + 'T00:00:00Z') - KST_OFFSET, special: sp, daysLeft: isoDayKey(sp.start) - today });
+  });
+  return items.sort((a, b) => a.sort - b.sort);
+}
+
+/* In-game weather (Event Overview): per series per week, 5 icons per session in time order,
+   each icon covering minutes/5 of the session. */
+const WX_LABEL = { sun: '맑음', partly: '구름 조금', cloudy: '흐림', overcast: '짙은 흐림', lightrain: '약한 비', rain: '비', heavyrain: '강한 비', storm: '뇌우' };
+const WX_WET = ['lightrain', 'rain', 'heavyrain', 'storm'];
+const WX_SESSIONS = [['practice', '연습'], ['qualifying', '예선'], ['race', '레이스']];
+function weatherFor(s, week) {
+  const w = s && s.weather && s.weather[week];
+  return w && typeof w === 'object' && !Array.isArray(w) ? w : null;
+}
+function hasIcons(ses) { return !!ses && Array.isArray(ses.icons) && ses.icons.length > 0; }
+function isWetIcon(icon) { return WX_WET.includes(icon); }
+/* Contiguous wet icon runs as [firstIndex, lastIndex] pairs. */
+function wetRuns(icons) {
+  const runs = [];
+  icons.forEach((ic, i) => {
+    if (!isWetIcon(ic)) return;
+    const last = runs[runs.length - 1];
+    if (last && last[1] === i - 1) last[1] = i; else runs.push([i, i]);
+  });
+  return runs;
+}
+/* Wet minute ranges, e.g. '48~72분', or '' when no icon is wet or minutes is unusable. */
+function rainSpans(ses) {
+  if (!hasIcons(ses) || !(ses.minutes > 0)) return '';
+  const per = ses.minutes / ses.icons.length;
+  return wetRuns(ses.icons).map(r => Math.round(r[0] * per) + '~' + Math.round((r[1] + 1) * per) + '분').join(', ');
+}
+/* '비 예보: 48~72분 구간(5칸 중 3번째)', or '' when the session has no wet icon. */
+function rainHint(ses) {
+  if (!hasIcons(ses)) return '';
+  const runs = wetRuns(ses.icons);
+  if (!runs.length) return '';
+  const cells = runs.map(r => (r[0] === r[1] ? String(r[0] + 1) : (r[0] + 1) + '~' + (r[1] + 1))).join(', ');
+  const spans = rainSpans(ses);
+  return '비 예보: ' + (spans ? spans + ' 구간' : '') + '(' + ses.icons.length + '칸 중 ' + cells + '번째)';
+}
+/* PURE:END */
+
+const STORE_KEY = 'lmu-kst-schedule-filters-v2';
+const SERIES_IDS = ['americas', 'proto', 'gt3', 'gmr', 'weekly', 'team', 'special'];
+const SOLO_IDS = ['americas', 'proto', 'gt3', 'gmr', 'weekly'];
+const LOGS_DIR = 'C:\\Users\\chun8\\lmu-schedule\\logs';
+const DATA = window.LMU_DATA;
+const STATUS = (window.LMU_STATUS && typeof window.LMU_STATUS === 'object') ? window.LMU_STATUS : null;
+let SEASONS = [], SPECIALS = [], SLOTS = [], state = null;
+
+function esc(v) {
+  return String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+}
+const $ = id => document.getElementById(id);
+
+/* Weather glyphs: small inline SVGs on a 24x24 grid, coloured by the --wx-* tokens. */
+function wxRays(cx, cy, r1, r2) {
+  let d = '';
+  for (let k = 0; k < 8; k++) {
+    const a = k * Math.PI / 4, c = Math.cos(a), s = Math.sin(a);
+    d += 'M' + (cx + c * r1).toFixed(1) + ' ' + (cy + s * r1).toFixed(1) + 'L' + (cx + c * r2).toFixed(1) + ' ' + (cy + s * r2).toFixed(1);
+  }
+  return '<path class="wx-ray" d="' + d + '"/>';
+}
+const WX_CLOUD_D = 'M6.5 17h11a3.5 3.5 0 0 0 .4-6.98 5 5 0 0 0-9.6-.82A4 4 0 0 0 6.5 17z';
+function wxCloud(cls, transform) {
+  return '<path class="' + cls + '" d="' + WX_CLOUD_D + '"' + (transform ? ' transform="' + transform + '"' : '') + '/>';
+}
+function wxDrops(xs, y1, y2) {
+  return '<path class="wx-drop" d="' + xs.map(x => 'M' + x + ' ' + y1 + 'l-1.5 ' + (y2 - y1)).join('') + '"/>';
+}
+const WX_UP = 'translate(0 -3.5)';
+const WX_SVG = {
+  sun: '<circle class="wx-sun" cx="12" cy="12" r="4.2"/>' + wxRays(12, 12, 6.6, 9.4),
+  partly: '<circle class="wx-sun" cx="8.5" cy="8.5" r="3.4"/>' + wxRays(8.5, 8.5, 5.1, 7.1) + wxCloud('wx-cl', 'translate(3.6 4.6) scale(.82)'),
+  cloudy: wxCloud('wx-cl', 'translate(0 .5)'),
+  overcast: wxCloud('wx-cl', 'translate(5.2 -1.6) scale(.78)') + wxCloud('wx-cd', 'translate(-1.2 1.6)'),
+  lightrain: wxCloud('wx-cl', WX_UP) + wxDrops([10.5, 15.5], 16.5, 19.5),
+  rain: wxCloud('wx-cl', WX_UP) + wxDrops([8.5, 13, 17.5], 16, 20.5),
+  heavyrain: wxCloud('wx-cd', WX_UP) + wxDrops([6.5, 10.5, 14.5, 18.5], 15.5, 21.5),
+  storm: wxCloud('wx-cd', WX_UP) + '<path class="wx-bolt" d="M13.2 13.5 9.4 18.6h2.8l-1.4 4.4 4.6-6h-2.9l1.6-3.5z"/>' + wxDrops([6.8, 18.3], 15.5, 19.5)
+};
+function wxIcon(icon) {
+  const label = WX_LABEL[icon] || String(icon);
+  const svg = WX_SVG[icon] ? '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + WX_SVG[icon] + '</svg>' : '?';
+  return '<span class="wxi' + (isWetIcon(icon) ? ' wet' : '') + '" role="img" aria-label="' + esc(label) + '" title="' + esc(label) + '">' + svg + '</span>';
+}
+function wxIconsHtml(ses, label) {
+  return '<span class="wx-icons" role="group" aria-label="' + esc(label + ' 날씨, 시간순 ' + ses.icons.length + '칸') + '">' + ses.icons.map(wxIcon).join('') + '</span>';
+}
+function sessionLabel(name, ses) {
+  return name + (Number.isInteger(ses.minutes) && ses.minutes > 0 ? ' ' + ses.minutes + '분' : '');
+}
+/* Weather block for one series row; a muted one-liner when the week has no observation yet. */
+function weatherHtml(s, week) {
+  const w = weatherFor(s, week);
+  if (!w) return '<p class="wx-none">날씨 미확인 · 게임 이벤트 화면을 F12로 찍어 두면 다음 갱신 때 반영됩니다</p>';
+  const lines = WX_SESSIONS.filter(([key]) => hasIcons(w[key])).map(([key, name]) => {
+    const ses = w[key], label = sessionLabel(name, ses);
+    const hint = key === 'race' ? rainHint(ses) : '';
+    return '<li class="wx-line' + (key === 'race' ? ' race' : '') + '">'
+      + '<span class="wx-ses">' + esc(label) + '</span>'
+      + wxIconsHtml(ses, label)
+      + '<span class="wx-rr"' + (ses.realRoad ? ' title="Real Road(노면 상태)">RR ' + esc(ses.realRoad) : '>') + '</span>'
+      + '</li>'
+      + (hint ? '<li class="wx-hint">' + esc(hint) + '</li>' : '');
+  }).join('');
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(w.observed || ''));
+  const when = m ? Number(m[2]) + '/' + Number(m[3]) + ' ' : '';
+  return '<div class="wx">'
+    + '<p class="wx-src">날씨 예보 · ' + esc(when + (w.source || '')) + '</p>'
+    + (lines ? '<ul class="wx-list">' + lines + '</ul>' : '')
+    + (w.note ? '<p class="wx-note">' + esc(w.note) + '</p>' : '')
+    + '</div>';
+}
+
+/* Minimal structural check so a broken data.js gives a message instead of a blank page.
+   The full schema check lives in check-data.mjs. */
+function dataProblem(d) {
+  if (!d || typeof d !== 'object') return 'window.LMU_DATA가 없습니다. data.js가 없거나 문법 오류가 있습니다.';
+  if (!Array.isArray(d.seasons) || !d.seasons.length) return 'seasons 목록이 비어 있거나 형식이 틀렸습니다.';
+  for (const se of d.seasons) {
+    if (!se || typeof se !== 'object') return 'seasons 항목 형식이 틀렸습니다.';
+    if (!isFinite(Date.parse(se.week1Start))) return (se.id || '?') + ': week1Start를 읽을 수 없습니다.';
+    if (!Array.isArray(se.shownWeeks) || !se.shownWeeks.length) return (se.id || '?') + ': shownWeeks가 비어 있습니다.';
+    if (!Array.isArray(se.series)) return (se.id || '?') + ': series 목록이 없습니다.';
+    for (const s of se.series) {
+      if (!s || typeof s !== 'object' || !s.tracks || !Array.isArray(s.classes)) return (se.id || '?') + ': series 항목 형식이 틀렸습니다.';
+    }
+  }
+  if (d.specials !== undefined && !Array.isArray(d.specials)) return 'specials 형식이 틀렸습니다.';
+  return '';
+}
+
+function renderFatal(msg) {
+  const el = $('fatal');
+  el.innerHTML = '<b>일정을 표시할 수 없습니다.</b>'
+    + '<span>' + esc(msg) + '</span>'
+    + '<span>data.js를 고친 뒤 node C:\\Users\\chun8\\lmu-schedule\\check-data.mjs 로 확인해 주세요.</span>';
+  el.hidden = false;
+  $('app').hidden = true;
+}
+
+/* Status bands: failed scheduled run (status.js) and stale checkedAt. Re-evaluated every tick. */
+function renderBands(now) {
+  const parts = [];
+  if (STATUS && STATUS.ok === false) {
+    const ran = Date.parse(STATUS.ranAt);
+    const when = isFinite(ran) ? fmtMd(ran) + ' ' + fmtTime(ran) : '시각 미상';
+    parts.push('마지막 자동 실행(' + when + ') 실패: ' + esc(STATUS.message || '사유 없음') + ' · 이전 데이터를 표시합니다.');
+  }
+  const checked = DATA && Date.parse(DATA.checkedAt);
+  if (checked && isFinite(checked) && now - checked > 36 * HOUR) {
+    const days = Math.max(1, Math.floor((now - checked) / DAY));
+    parts.push('자동 확인이 ' + days + '일째 멈춰 있습니다. 작업 스케줄러의 \'LMU 일정 갱신\'과 ' + LOGS_DIR + ' 를 확인해 주세요.');
+  }
+  const el = $('bands');
+  const html = parts.map(p => '<p class="band">' + p + '</p>').join('');
+  if (el.innerHTML !== html) el.innerHTML = html;
+  el.hidden = !parts.length;
+}
+
+function renderHeader() {
+  const checked = Date.parse(DATA.checkedAt);
+  $('sub').textContent = '80분 이상 · KST(UTC+9) · ' + (isFinite(checked) ? '마지막 확인 ' + fmtKst(checked) : '확인 시각 없음');
+  const note = typeof DATA.changeNote === 'string' ? DATA.changeNote.trim() : '';
+  $('change-note').textContent = note ? '최근 변경: ' + note : '';
+  $('change-note').hidden = !note;
+}
+
+function renderTexts() {
+  const text = DATA.text || {};
+  const list = v => (Array.isArray(v) ? v : []);
+  $('plan-lede').innerHTML = list(text.planLede).map(p => '<p>' + esc(p) + '</p>').join('');
+  $('plan-lede').hidden = !list(text.planLede).length;
+  $('tt-line').textContent = text.timetableLine || '';
+  $('tt-line').hidden = !text.timetableLine;
+  $('team-guide').innerHTML = list(text.teamGuide).map(p => '<p>' + esc(p) + '</p>').join('');
+  $('sec-team').hidden = !list(text.teamGuide).length;
+  $('checks').innerHTML = list(text.checks).map(p => '<li>' + esc(p) + '</li>').join('');
+  $('sec-check').hidden = !list(text.checks).length;
+  const sources = list(DATA.sources);
+  $('sources').innerHTML = sources.map(s => '<li><a href="' + esc(s.url) + '">' + esc(s.label) + '</a></li>').join('');
+  $('sec-src').hidden = !sources.length;
+}
+
+function defaultState() {
+  const series = {};
+  SERIES_IDS.forEach(id => { series[id] = true; });
+  return { mode: 'all', evening: false, series };
+}
+function loadState() {
+  const st = defaultState();
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return st;
+    const saved = JSON.parse(raw);
+    if (['all', 'solo', 'team'].includes(saved.mode)) st.mode = saved.mode;
+    if (typeof saved.evening === 'boolean') st.evening = saved.evening;
+    if (saved.series) SERIES_IDS.forEach(id => { if (typeof saved.series[id] === 'boolean') st.series[id] = saved.series[id]; });
+  } catch (e) { /* storage unavailable: defaults stay */ }
+  return st;
+}
+function saveState() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable */ }
+}
+
+function classChips(list) {
+  return '<div class="classes">' + list.map(c => '<span class="cls ' + esc(c) + '">' + esc(CLASS_LABEL[c] || c) + '</span>').join('') + '</div>';
+}
+function slotHtml(s) {
+  const rec = isRecommended(s, DATA.recommend);
+  const recLabel = rec ? (DATA.recommend.label || '추천') : '';
+  const label = fmtKst(s.t) + ' 출발, ' + fmtKst(s.end) + ' 종료 추정' + (rec ? ', ' + recLabel : '');
+  return '<li class="slot' + (rec ? ' rec' : '') + '" data-t="' + s.t + '" data-eve="' + (isEvening(s.t) ? 1 : 0) + '" data-key="' + esc(s.season + '-' + s.series + '-' + s.t) + '" aria-label="' + esc(label) + '" title="' + esc(label) + '">'
+    + '<span class="t">' + fmtTime(s.t) + '</span>'
+    + '<span class="e">~' + endLabel(s) + '</span>'
+    + (rec ? '<span class="tag">' + esc(recLabel) + '</span>' : '')
+    + '<span class="tag tag-next" hidden>다음</span>'
+    + '</li>';
+}
+function daysHtml(slots) {
+  const groups = new Map();
+  slots.forEach(s => {
+    const k = kstDayKey(s.t);
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(s);
+  });
+  return Array.from(groups.values()).map(g =>
+    '<div class="day"><div class="day-label">' + fmtDate(g[0].t) + '</div><ul class="slots">' + g.map(slotHtml).join('') + '</ul></div>'
+  ).join('');
+}
+function seriesRow(season, s, week) {
+  const slots = SLOTS.filter(x => x.season === season.id && x.series === s.id && x.week === week);
+  if (!slots.length) return '';
+  const trackLine = s.kind === 'team'
+    ? s.tracks[week]
+    : s.tracks[week] + ' · ' + lenLabel(s);
+  return '<article class="row" data-series="' + esc(s.id) + '" data-kind="' + esc(s.kind) + '" data-classes="' + esc(s.classes.join(' ')) + '">'
+    + '<div class="row-meta">'
+    + classChips(s.classes)
+    + '<h4 class="sname latin">' + esc(s.name) + '</h4>'
+    + '<p class="track">' + esc(trackLine) + '</p>'
+    + '<p class="req">' + esc(s.req || '') + '</p>'
+    + '<p class="req">출발 + ' + fmtDuration(s.lead + s.len) + ' 종료 추정</p>'
+    + (s.note ? '<p class="req">' + esc(s.note) + '</p>' : '')
+    + '<p class="req kept" hidden>LMGT3가 켜져 있어 표시합니다.</p>'
+    + '</div>'
+    + '<div class="row-slots">'
+    + (weatherFor(s, week) ? weatherHtml(s, week) : '')
+    + daysHtml(slots)
+    + '<p class="row-empty" hidden>저녁 슬롯이 없습니다. 저녁만 필터를 끄면 다른 시간이 보입니다.</p>'
+    + '<p class="row-more" hidden><span></span><button type="button" class="more-btn" id="more-' + esc(season.id + '-' + s.id + '-' + week) + '">모두 보기</button></p>'
+    + (weatherFor(s, week) ? '' : weatherHtml(s, week))
+    + '</div></article>';
+}
+function specialRow(sp) {
+  const badge = specialBadge(sp);
+  return '<article class="row" data-series="special" data-kind="team" data-classes="' + esc(sp.classes.join(' ')) + '" data-end-day="' + isoDayKey(sp.end) + '">'
+    + '<div class="row-meta">'
+    + classChips(sp.classes)
+    + '<h4 class="sname">' + esc(sp.title) + '</h4>'
+    + '<p class="req">Special Event · 팀 레이스</p>'
+    + '<p class="req kept" hidden>LMGT3가 켜져 있어 표시합니다.</p>'
+    + '</div>'
+    + '<div class="row-slots">'
+    + '<div class="window"><span class="window-date">' + fmtIsoDate(sp.start) + ' ~ ' + fmtIsoDate(sp.end) + '</span>' + (badge ? '<span class="pending">' + esc(badge) + '</span>' : '') + '</div>'
+    + (sp.note ? '<p class="req">' + esc(sp.note) + '</p>' : '')
+    + '</div></article>';
+}
+function weekHtml(sec) {
+  const { season, week: n } = sec;
+  const multi = SEASONS.length > 1;
+  const title = (multi ? season.name + ' · ' : '') + n + '주차';
+  const solo = season.series.filter(s => s.kind === 'solo').map(s => seriesRow(season, s, n)).join('');
+  const team = season.series.filter(s => s.kind === 'team').map(s => seriesRow(season, s, n)).join('')
+    + SPECIALS.filter(sp => { const p = placeSpecial(SEASONS, sp); return p && p.season === season && p.week === n; }).map(specialRow).join('');
+  const flag = season.weekFlags && season.weekFlags[n];
+  return '<section class="week" data-start="' + sec.start + '" data-end="' + sec.end + '" aria-label="' + esc(title) + '">'
+    + '<header class="wk-head"><h3>' + esc(title) + ' · ' + fmtKst(sec.start) + ' ~ ' + fmtKst(sec.end) + '</h3><span class="wk-badge" hidden></span></header>'
+    + (flag ? '<p class="flag">' + esc(flag) + '</p>' : '')
+    + (solo ? '<div class="subhead" data-for="solo">솔로</div>' + solo : '')
+    + (team ? '<div class="subhead" data-for="team">팀</div>' + team : '')
+    + '<p class="week-empty" hidden>표시할 일정이 없습니다. 필터를 바꿔 보세요.</p>'
+    + '</section>';
+}
+/* Specials outside every shown week, labelled by their months (e.g. "12월" or "12월·1월"). */
+function afterHtml() {
+  const list = SPECIALS.filter(sp => !placeSpecial(SEASONS, sp));
+  const note = (DATA.text && DATA.text.afterSpecials) || '';
+  if (!list.length && !note) return '';
+  const months = [];
+  list.forEach(sp => { const m = isoMonth(sp.start) + '월'; if (!months.includes(m)) months.push(m); });
+  const label = list.length ? months.join('·') + ' · 스페셜 이벤트' : '이후 일정';
+  return '<section class="week after" aria-label="' + esc(label) + '">'
+    + '<header class="wk-head"><h3>' + esc(label) + '</h3></header>'
+    + (list.length ? '<div class="subhead" data-for="team">팀</div>' + list.map(specialRow).join('') : '')
+    + '<p class="week-empty" hidden>표시할 일정이 없습니다. 필터를 바꿔 보세요.</p>'
+    + (note ? '<p class="dec-note">' + esc(note) + '</p>' : '')
+    + '</section>';
+}
+function renderTimetable(season) {
+  const order = [MON, TUE, WED, THU, FRI, SAT, SUN];
+  const turn = turnover(season);
+  $('h-tt').textContent = '고정 주간 시간표 · ' + season.name;
+  $('tt-head').innerHTML = '<th scope="col">시리즈</th>' + order.map(wd =>
+    '<th scope="col">' + KO_DAY[wd] + (wd === turn.wd ? '<small>' + turn.time + ' 주차 전환</small>' : '') + '</th>'
+  ).join('');
+  $('tt-body').innerHTML = season.series.filter(s => s.rule).map(s => {
+    const cols = weeklyPattern(s);
+    const nameClass = s.kind === 'team' ? 'tt-name ko' : 'tt-name';
+    const sub = lenLabel(s) + (s.tableNote ? ' · ' + s.tableNote : '');
+    return '<tr><th scope="row"><span class="' + nameClass + '">' + esc(s.short) + '</span><span class="tt-sub">' + esc(sub) + '</span></th>'
+      + order.map(wd => {
+        const hours = cols[wd];
+        if (!hours.length) return '<td><span class="tt-none" aria-label="없음">·</span></td>';
+        return '<td>' + hours.map(h => '<span class="tt-t' + (h >= 17 && h <= 23 ? ' eve' : '') + '">' + pad2(h) + ':00</span>').join('') + '</td>';
+      }).join('') + '</tr>';
+  }).join('');
+}
+
+function whenHtml(ms) {
+  return '<div class="nx-when"><span class="d">' + fmtDate(ms) + '</span> <span class="t">' + fmtTime(ms) + '</span></div>';
+}
+function lastSeasonName() {
+  return SEASONS.slice().sort((a, b) => seasonEnd(b) - seasonEnd(a))[0].name;
+}
+function renderNextSolo(now) {
+  const el = $('next-solo');
+  const queue = soloQueue(now, SLOTS, state);
+  const label = '<div class="nx-label">다음 솔로 출발' + (state.evening ? '<span>저녁 슬롯 기준</span>' : '') + '</div>';
+  if (!queue.length) {
+    const over = !SLOTS.some(x => x.kind === 'solo' && x.t > now);
+    el.innerHTML = label + '<p class="nx-none">' + (over ? esc(lastSeasonName()) + ' 솔로 일정이 끝났습니다.' : '선택한 조건에 남은 솔로 슬롯이 없습니다.') + '</p>';
+    return null;
+  }
+  const n = queue[0], s = n.def;
+  const others = queue.filter(x => x.t === n.t && x.series !== n.series).map(x => esc(x.def.name));
+  const wx = weatherFor(s, n.week), race = wx && hasIcons(wx.race) ? wx.race : null;
+  const wet = race ? rainSpans(race) : '';
+  el.innerHTML = label
+    + '<div class="nx-name latin">' + esc(s.name) + '</div>'
+    + '<div class="nx-track">' + esc(n.track) + ' · ' + lenLabel(s) + '</div>'
+    + (race ? '<div class="nx-wx"><span>레이스 날씨</span>' + wxIconsHtml(race, '레이스')
+      + (wet ? '<span class="nx-wet" title="' + esc(rainHint(race)) + '">비 ' + esc(wet) + '</span>' : '') + '</div>' : '')
+    + whenHtml(n.t)
+    + '<div class="nx-cd"><b>' + countdown(n.t - now) + '</b> · ' + fmtKst(n.end) + ' 종료 추정</div>'
+    + (others.length ? '<div class="nx-then">같은 시각: ' + others.join(', ') + '</div>' : '');
+  return n;
+}
+function teamLine(item, now) {
+  if (item.type === 'round') {
+    return esc(item.slot.def.name) + ' · ' + esc(item.slot.track) + ' · ' + fmtKst(item.slot.t) + ' · <b>' + countdown(item.slot.t - now) + '</b>';
+  }
+  const sp = item.special, badge = specialBadge(sp);
+  return esc(sp.title) + ' · ' + fmtIsoDate(sp.start) + ' ~ ' + fmtIsoDate(sp.end) + (badge ? ' · ' + esc(badge) : '');
+}
+function renderNextTeam(now) {
+  const el = $('next-team');
+  const queue = teamQueue(now, SLOTS, SPECIALS, state);
+  const label = '<div class="nx-label">다음 팀 일정</div>';
+  if (!queue.length) {
+    const over = !SLOTS.some(x => x.kind === 'team' && x.t > now) && !SPECIALS.some(sp => isoDayKey(sp.end) >= kstDayKey(now));
+    el.innerHTML = label + '<p class="nx-none">' + (over ? '표시할 팀 일정이 모두 끝났습니다.' : '선택한 조건에 남은 팀 일정이 없습니다.') + '</p>';
+    return;
+  }
+  const first = queue[0];
+  const other = queue.find(x => x.type !== first.type);
+  let html = label;
+  if (first.type === 'round') {
+    html += '<div class="nx-name latin">' + esc(first.slot.def.name) + '</div>'
+      + '<div class="nx-track">' + esc(first.slot.track) + '</div>'
+      + whenHtml(first.slot.t)
+      + '<div class="nx-cd"><b>' + countdown(first.slot.t - now) + '</b> · ' + fmtKst(first.slot.end) + ' 종료 추정</div>';
+  } else {
+    const sp = first.special, badge = specialBadge(sp);
+    html += '<div class="nx-name">' + esc(sp.title) + '</div>'
+      + '<div class="nx-track">Special Event' + (badge ? ' · ' + esc(badge) : '') + '</div>'
+      + '<div class="nx-when"><span class="d">' + fmtIsoDate(sp.start) + ' ~ ' + fmtIsoDate(sp.end) + '</span></div>'
+      + '<div class="nx-cd"><b>' + (first.daysLeft > 0 ? '시작일까지 ' + first.daysLeft + '일' : '이벤트 기간') + '</b></div>';
+  }
+  if (other) html += '<div class="nx-then">이어서: ' + teamLine(other, now) + '</div>';
+  el.innerHTML = html;
+}
+
+/* Subheads and "nothing to show" lines; stale (auto-hidden) rows do not count as visible. */
+function updateEmpties() {
+  document.querySelectorAll('.week').forEach(week => {
+    const rows = Array.from(week.querySelectorAll('.row'));
+    const live = rows.filter(r => !r.classList.contains('stale'));
+    week.querySelectorAll('.subhead').forEach(h => {
+      h.hidden = !live.some(r => r.dataset.kind === h.dataset.for && !r.hidden);
+    });
+    week.querySelector('.week-empty').hidden = live.some(r => !r.hidden) || (rows.length > 0 && live.length === 0);
+  });
+}
+
+function tick() {
+  const now = Date.now();
+  renderBands(now);
+  const next = renderNextSolo(now);
+  renderNextTeam(now);
+  const nextT = next ? next.t : -1;
+  const today = kstDayKey(now);
+  document.querySelectorAll('.slot').forEach(el => {
+    el.classList.toggle('past', Number(el.dataset.t) <= now);
+    const isNext = Number(el.dataset.t) === nextT && el.closest('.row').dataset.kind === 'solo';
+    el.classList.toggle('next', isNext);
+    el.querySelector('.tag-next').hidden = !isNext;
+  });
+  document.querySelectorAll('.row[data-end-day]').forEach(el => {
+    const endDay = Number(el.dataset.endDay);
+    el.classList.toggle('past', endDay < today);
+    if (el.closest('.week.after')) el.classList.toggle('stale', endDay < today - 3);
+  });
+  document.querySelectorAll('.week[data-start]').forEach(el => {
+    const start = Number(el.dataset.start), end = Number(el.dataset.end);
+    const current = now >= start && now < end;
+    const done = now >= end;
+    el.classList.toggle('current', current);
+    el.classList.toggle('stale', isStaleWeek(end, now));
+    const badge = el.querySelector('.wk-badge');
+    badge.hidden = !current && !done;
+    badge.textContent = current ? '이번 주' : '지난 주차';
+  });
+  const after = document.querySelector('.week.after');
+  if (after) {
+    const anyLive = Array.from(after.querySelectorAll('.row')).some(r => !r.classList.contains('stale'));
+    after.classList.toggle('stale', !anyLive && !after.querySelector('.dec-note'));
+  }
+  updateEmpties();
+}
+
+function applyFilters() {
+  document.querySelectorAll('.row').forEach(row => {
+    const kind = row.dataset.kind, id = row.dataset.series;
+    const show = (state.mode === 'all' || state.mode === kind) && seriesShown(state, id, row.dataset.classes.split(' '));
+    row.hidden = !show;
+    row.querySelector('.kept').hidden = !(show && state.series[id] === false);
+    if (kind !== 'solo') return;
+    let anyDay = false;
+    row.querySelectorAll('.day').forEach(day => {
+      let any = false;
+      day.querySelectorAll('.slot').forEach(el => {
+        const vis = !state.evening || el.dataset.eve === '1';
+        el.hidden = !vis;
+        any = any || vis;
+      });
+      day.hidden = !any;
+      anyDay = anyDay || any;
+    });
+    row.querySelector('.row-empty').hidden = anyDay;
+    const hiddenCount = row.querySelectorAll('.slot[hidden]').length;
+    const more = row.querySelector('.row-more');
+    more.hidden = hiddenCount === 0;
+    more.querySelector('span').textContent = '새벽·낮 슬롯 ' + hiddenCount + '개를 숨겼습니다.';
+  });
+  updateEmpties();
+  document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode)));
+  const evening = $('evening');
+  evening.setAttribute('aria-pressed', String(state.evening));
+  evening.disabled = state.mode === 'team';
+  document.querySelectorAll('button[data-series]').forEach(b => {
+    const id = b.dataset.series;
+    b.setAttribute('aria-pressed', String(state.series[id] !== false));
+    const solo = SOLO_IDS.includes(id);
+    b.disabled = (state.mode === 'team' && solo) || (state.mode === 'solo' && !solo);
+  });
+}
+
+function changed() {
+  saveState();
+  applyFilters();
+  tick();
+}
+
+function init() {
+  SEASONS = DATA.seasons;
+  SPECIALS = Array.isArray(DATA.specials) ? DATA.specials : [];
+  SLOTS = allSlots(DATA);
+  state = loadState();
+  const now = Date.now();
+  renderHeader();
+  renderTexts();
+  $('plan').innerHTML = weekSections(DATA).map(weekHtml).join('') + afterHtml();
+  renderTimetable(pickTimetableSeason(SEASONS, now));
+  applyFilters();
+  tick();
+
+  document.querySelectorAll('[data-mode]').forEach(b => {
+    b.addEventListener('click', () => { state.mode = b.dataset.mode; changed(); });
+  });
+  $('evening').addEventListener('click', () => { state.evening = !state.evening; changed(); });
+  $('plan').addEventListener('click', e => {
+    if (e.target.closest('.more-btn')) { state.evening = false; changed(); }
+  });
+  document.querySelectorAll('button[data-series]').forEach(b => {
+    b.addEventListener('click', () => { state.series[b.dataset.series] = !(state.series[b.dataset.series] !== false); changed(); });
+  });
+
+  setTimeout(() => { tick(); setInterval(tick, MIN); }, MIN - (Date.now() % MIN));
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
+}
+
+/* data.js is refreshed daily at 18:00 KST; a tab left open reloads to pick it up
+   (also recovers a tab that loaded a broken data.js). */
+const LOADED_AT = Date.now();
+function needsReload(now) {
+  if (now - LOADED_AT > 6 * HOUR) return true;
+  // KST midnight of today (as a UTC instant) + 18:30.
+  const refreshToday = now - ((now + KST_OFFSET) % DAY) + (18 * 60 + 30) * MIN;
+  return LOADED_AT < refreshToday && now >= refreshToday;
+}
+setInterval(() => { if (!document.hidden && needsReload(Date.now())) location.reload(); }, 5 * MIN);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && needsReload(Date.now())) location.reload();
+});
+
+(function main() {
+  const problem = dataProblem(DATA);
+  try { renderBands(Date.now()); } catch (e) { /* bands are best effort */ }
+  if (problem) { renderFatal(problem); return; }
+  try {
+    init();
+  } catch (e) {
+    renderFatal('data.js 내용을 처리하다 오류가 났습니다: ' + (e && e.message ? e.message : e));
+  }
+})();
+</script>
+
+</body>
+</html>
