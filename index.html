@@ -328,6 +328,17 @@ a { color: var(--link); }
 .pending { font-size: 0.8rem; font-weight: 600; padding: 1px 8px; background: var(--flag-bg); color: var(--flag-fg); }
 .row.past .window-date, .row.past .sname, .row.past .track { color: var(--ink-3); }
 .row.past .pending { display: none; }
+/* Special start times (specials[].times). Official: neutral badge + plain .slot chips.
+   Unofficial (third-party): dashed yellow badge and chips, unlike solid official slot chips. */
+.times { display: grid; gap: 5px; min-width: 0; }
+.times-badge { justify-self: start; font-size: 0.8rem; font-weight: 600; padding: 0 7px; background: var(--neutral-bg); color: var(--neutral-fg); border: 1px solid var(--neutral-bg); }
+.times-badge.unofficial { background: var(--flag-bg); color: var(--flag-fg); border: 1px dashed var(--flag-fg); }
+.slot.times-slot.unofficial { background: var(--flag-bg); color: var(--flag-fg); border: 1px dashed var(--flag-fg); }
+.slot.times-slot.unofficial .e { color: var(--flag-fg); }
+.slot.times-slot.unofficial.past { background: transparent; color: var(--ink-3); border-color: var(--line); }
+.slot.times-slot.unofficial.past .e { color: var(--ink-3); }
+.times-note { font-size: 0.78rem; color: var(--ink-3); }
+.row.past .times-badge { background: transparent; color: var(--ink-3); border-color: var(--line); }
 .dec-note { padding: 9px 14px; font-size: 0.9rem; border-top: 1px solid var(--line-strong); }
 
 /* Weather from the in-game Event Overview: one line per session, 5 glyphs in time order. */
@@ -607,6 +618,19 @@ function placeSpecial(seasons, sp) {
   return null;
 }
 function specialBadge(sp) { return sp.badge === undefined ? '슬롯 미공개' : sp.badge; }
+/* Start times of a special (specials[].times, official or third-party) as sorted { t, end } chips
+   (end null without len). Display only: never fed into slots, queues, recommend or the timetable. */
+function specialTimes(sp) {
+  const u = sp && sp.times;
+  if (!u || !Array.isArray(u.starts)) return [];
+  return u.starts.map(iso => Date.parse(iso)).filter(t => isFinite(t)).sort((a, b) => a - b)
+    .map(t => ({ t, end: u.len > 0 ? t + ((u.lead > 0 ? u.lead : 0) + u.len) * MIN : null }));
+}
+/* Last KST day a special still matters: its calendar end, or later when its times run past it in KST. */
+function specialEndDay(sp) {
+  const t = specialTimes(sp), last = t.length ? t[t.length - 1] : null;
+  return Math.max(isoDayKey(sp.end), last ? kstDayKey(last.end || last.t) : -Infinity);
+}
 
 /* Weekly pattern in KST: map of KST weekday -> sorted KST hours. */
 function weeklyPattern(s) {
@@ -648,7 +672,7 @@ function teamQueue(now, slots, specials, st) {
   const today = kstDayKey(now);
   const items = [];
   slots.filter(s => s.kind === 'team' && s.t > now && seriesShown(st, s.series, s.classes)).forEach(s => items.push({ type: 'round', sort: s.t, slot: s }));
-  specials.filter(sp => seriesShown(st, 'special', sp.classes) && isoDayKey(sp.end) >= today).forEach(sp => {
+  specials.filter(sp => seriesShown(st, 'special', sp.classes) && specialEndDay(sp) >= today).forEach(sp => {
     items.push({ type: 'special', sort: Date.parse(sp.start + 'T00:00:00Z') - KST_OFFSET, special: sp, daysLeft: isoDayKey(sp.start) - today });
   });
   return items.sort((a, b) => a.sort - b.sort);
@@ -871,7 +895,7 @@ function slotHtml(s) {
     + '<span class="tag tag-next" hidden>다음</span>'
     + '</li>';
 }
-function daysHtml(slots) {
+function daysHtml(slots, chip = slotHtml) {
   const groups = new Map();
   slots.forEach(s => {
     const k = kstDayKey(s.t);
@@ -879,8 +903,28 @@ function daysHtml(slots) {
     groups.get(k).push(s);
   });
   return Array.from(groups.values()).map(g =>
-    '<div class="day"><div class="day-label">' + fmtDate(g[0].t) + '</div><ul class="slots">' + g.map(slotHtml).join('') + '</ul></div>'
+    '<div class="day"><div class="day-label">' + fmtDate(g[0].t) + '</div><ul class="slots">' + g.map(chip).join('') + '</ul></div>'
   ).join('');
+}
+/* Special start chip: past styling comes from tick() via data-t; never "next" or recommended.
+   Official chips look like normal slot chips; unofficial ones get the dashed yellow look. */
+function specialTimeChip(u, official) {
+  const label = (official ? '공식 ' : '비공식 ') + fmtKst(u.t) + ' 출발' + (u.end ? ', ' + fmtKst(u.end) + ' 종료 추정' : '');
+  return '<li class="slot times-slot' + (official ? '' : ' unofficial') + '" data-t="' + u.t + '" aria-label="' + esc(label) + '" title="' + esc(label) + '">'
+    + '<span class="t">' + fmtTime(u.t) + '</span>'
+    + (u.end ? '<span class="e">~' + endLabel(u) + '</span>' : '')
+    + '</li>';
+}
+function specialTimesHtml(sp) {
+  const chips = specialTimes(sp);
+  if (!chips.length) return '';
+  const u = sp.times, official = u.official === true, source = String(u.source || (official ? '공식' : '서드파티'));
+  const checked = Date.parse(u.checked);
+  return '<div class="times' + (official ? ' official' : '') + '">'
+    + '<span class="times-badge' + (official ? '' : ' unofficial') + '">' + esc((official ? '공식 · ' : '비공식 · ') + source + ' 기준') + '</span>'
+    + daysHtml(chips, c => specialTimeChip(c, official))
+    + '<p class="times-note">' + esc(source + (isFinite(checked) ? ' ' + fmtMd(checked) : '') + (/확인$/.test(source) ? '' : ' 확인') + ' · 게임 안 일정이 우선입니다.') + '</p>'
+    + '</div>';
 }
 function seriesRow(season, s, week) {
   const slots = SLOTS.filter(x => x.season === season.id && x.series === s.id && x.week === week);
@@ -908,7 +952,7 @@ function seriesRow(season, s, week) {
 }
 function specialRow(sp) {
   const badge = specialBadge(sp);
-  return '<article class="row" data-series="special" data-kind="team" data-classes="' + esc(sp.classes.join(' ')) + '" data-end-day="' + isoDayKey(sp.end) + '">'
+  return '<article class="row" data-series="special" data-kind="team" data-classes="' + esc(sp.classes.join(' ')) + '" data-end-day="' + specialEndDay(sp) + '">'
     + '<div class="row-meta">'
     + classChips(sp.classes)
     + '<h4 class="sname">' + esc(sp.title) + '</h4>'
@@ -918,6 +962,7 @@ function specialRow(sp) {
     + '<div class="row-slots">'
     + '<div class="window"><span class="window-date">' + fmtIsoDate(sp.start) + ' ~ ' + fmtIsoDate(sp.end) + '</span>' + (badge ? '<span class="pending">' + esc(badge) + '</span>' : '') + '</div>'
     + (sp.note ? '<p class="req">' + esc(sp.note) + '</p>' : '')
+    + specialTimesHtml(sp)
     + '</div></article>';
 }
 function weekHtml(sec) {
@@ -1012,7 +1057,7 @@ function renderNextTeam(now) {
   const queue = teamQueue(now, SLOTS, SPECIALS, state);
   const label = '<div class="nx-label">다음 팀 일정</div>';
   if (!queue.length) {
-    const over = !SLOTS.some(x => x.kind === 'team' && x.t > now) && !SPECIALS.some(sp => isoDayKey(sp.end) >= kstDayKey(now));
+    const over = !SLOTS.some(x => x.kind === 'team' && x.t > now) && !SPECIALS.some(sp => specialEndDay(sp) >= kstDayKey(now));
     el.innerHTML = label + '<p class="nx-none">' + (over ? '표시할 팀 일정이 모두 끝났습니다.' : '선택한 조건에 남은 팀 일정이 없습니다.') + '</p>';
     return;
   }
@@ -1058,7 +1103,8 @@ function tick() {
     el.classList.toggle('past', Number(el.dataset.t) <= now);
     const isNext = Number(el.dataset.t) === nextT && el.closest('.row').dataset.kind === 'solo';
     el.classList.toggle('next', isNext);
-    el.querySelector('.tag-next').hidden = !isNext;
+    const tagNext = el.querySelector('.tag-next');
+    if (tagNext) tagNext.hidden = !isNext;
   });
   document.querySelectorAll('.row[data-end-day]').forEach(el => {
     const endDay = Number(el.dataset.endDay);

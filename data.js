@@ -78,6 +78,28 @@
  *   classes     Car classes (same set as above).
  *   note        Optional line under the date window.
  *   badge       Optional status chip text. Omitted -> '슬롯 미공개'; '' -> no chip.
+ *   times       Optional start times shown on the special card. Display only: they never feed the
+ *               next-slot strip, recommend or the timetable.
+ *               official: true  -> official announcement (e.g. LMU Discord): solid chips like normal
+ *                                  slots and a neutral '공식 · <source> 기준' badge.
+ *               official absent/false -> UNOFFICIAL third-party times: dashed yellow chips and a
+ *                                  '비공식 · <source> 기준' badge.
+ *               { source:   short source name, e.g. 'lmu.tools' or 'LMU 공식 Discord' (1..40 characters),
+ *                 checked:  ISO 8601 with offset, when the source was read (must not be in the future),
+ *                 starts:   non-empty array of ISO 8601 start instants with offset, unique, sorted
+ *                           ascending; each UTC date must be within start - 1 day .. end + 1 day,
+ *                 official: optional boolean (default false), true only for official announcements,
+ *                 len:      optional race length in minutes (1..1440) for the estimated end time,
+ *                 lead:     optional minutes from session start to race start (0..240; team races 22),
+ *                           added to len for the end time. starts are session starts. }
+ *               Never copy these times into series rule/oneOff. Keep starts that are already in
+ *               the past even if the source drops them. Remove an unofficial entry when the source
+ *               shows no upcoming times and none were recorded, and when the special is cleaned up.
+ *               When official sources announce the times, replace it with official: true.
+ *               example  times: { source: 'lmu.tools', checked: '2026-11-20T11:30:00+09:00',
+ *                          starts: ['2026-11-20T07:00:00Z'], len: 360, lead: 22 }
+ *               example  times: { source: 'LMU 공식 Discord', official: true,
+ *                          checked: '2026-11-20T12:25:00+09:00', starts: [...], len: 360, lead: 22 }
  *   A special is placed in the shown week containing (start 12:00 UTC); otherwise it goes to a
  *   trailing "<month> · 스페셜 이벤트" section after the last week.
  *
@@ -89,8 +111,8 @@
  *   afterSpecials Line at the end of the trailing specials section ('' for none).
  */
 window.LMU_DATA = {
-  checkedAt: '2026-11-19T18:00:02+09:00',
-  changeNote: '7일 지난 WEC Weekly 회차를 지우고 lmu.tools 차이 문구를 11/19 기준으로 고쳤습니다.',
+  checkedAt: '2026-11-20T18:00:01+09:00',
+  changeNote: '7일 지난 WEC Weekly 11/12 이몰라 3회차를 지웠습니다.',
   recommend: { series: 'americas', kstWeekday: 'SUN', kstTime: '20:00', label: '기본 추천' },
 
   seasons: [
@@ -144,7 +166,6 @@ window.LMU_DATA = {
           classes: ['hy', 'gt3'], req: '구독 불필요(공식 안내) · 슬롯 출처 lmu.tools(서드파티)',
           note: '이후 회차는 아직 알 수 없습니다. 게임 안 일정에서 확인해 주세요.',
           oneOff: [
-            '2026-11-12T11:00:00Z', '2026-11-12T13:00:00Z', '2026-11-12T15:00:00Z',
             '2026-11-16T01:00:00Z', '2026-11-16T03:00:00Z', '2026-11-16T05:00:00Z',
             '2026-11-16T11:00:00Z', '2026-11-16T13:00:00Z', '2026-11-16T15:00:00Z'
           ],
@@ -166,7 +187,11 @@ window.LMU_DATA = {
     { title: '8시간 바레인', start: '2026-11-13', end: '2026-11-15', classes: ['hy', 'gt3'],
       note: '공식 캘린더(2026-10-15) 기준 금~일 진행', badge: '슬롯 미공개' },
     { title: '6시간 몬차', start: '2026-11-20', end: '2026-11-22', classes: ['hy', 'gt3'],
-      note: '공식 캘린더(2026-10-15) 기준 금~일 진행', badge: '슬롯 미공개' },
+      note: '공식 Discord 공지 기준: 플레이어 SR B2 이상, 라인업 자유 참가, Rookie·Warning 배지 불가, 38대 분할, 오픈 셋업, 타이어 워머 없음, 타이어 20개. 게임 안 시각 예선 14:20·레이스 11:00, 기온 10~14℃, 흐림에서 점차 갬.', badge: '',
+      times: { source: 'LMU 공식 Discord', official: true, checked: '2026-11-20T12:25:00+09:00', len: 360, lead: 22,
+        starts: ['2026-11-20T02:00:00Z', '2026-11-20T07:00:00Z', '2026-11-20T12:00:00Z', '2026-11-20T17:00:00Z', '2026-11-20T22:00:00Z',
+                 '2026-11-21T02:00:00Z', '2026-11-21T07:00:00Z', '2026-11-21T12:00:00Z', '2026-11-21T17:00:00Z', '2026-11-21T22:00:00Z',
+                 '2026-11-22T02:00:00Z', '2026-11-22T07:00:00Z', '2026-11-22T12:00:00Z', '2026-11-22T17:00:00Z', '2026-11-22T22:00:00Z'] } },
     { title: '6시간 실버스톤', start: '2026-12-04', end: '2026-12-06', classes: ['hy', 'gt3'],
       note: '공식 캘린더(2026-10-15) 기준 금~일 진행', badge: '슬롯 미공개' },
     { title: '6시간 (서킷 미정)', start: '2026-12-18', end: '2026-12-20', classes: ['hy', 'wp2', 'gt3'],
@@ -186,13 +211,13 @@ window.LMU_DATA = {
       '2026년 규칙은 게임 안 RaceControl 대시보드에서 확인해야 합니다.'
     ],
     checks: [
-      '스페셜 이벤트 슬롯은 공식 공지 전이므로 게임 안에서 확인해야 합니다. 서드파티 lmu.tools는 11/19에도 6시간 몬차를 금요일(11/20) 02:00·07:00·12:00 UTC(KST 11:00·16:00·21:00)로 표시했습니다. 공식 발표가 아니라서 반영하지 않았습니다.',
-      '서드파티 lmu.tools는 11/19에 Weekly Races 칸에 "Prototype Challenge" 카타르(WEC) 90분(LMP2·LMP3)을 목요일(11/19) 11:00·13:00·15:00 UTC로 표시했습니다. 이름과 클래스가 WEC Weekly(하이퍼카·LMGT3)와 달라서 WEC Weekly 7주차 회차로 넣지 않았습니다. 게임 안 일정에서 확인해 주세요.',
+      '6시간 몬차 시각은 LMU 공식 Discord #online-status-schedule 공지(Daily Race Schedule from 17th November 2026) 기준입니다. 다른 스페셜(6시간 실버스톤, 12/18~20 이벤트)은 아직 공식 공지 전이라, 서드파티 lmu.tools에 시각이 보이면 스페셜 카드에 비공식 배지와 함께 따로 표시합니다. 게임 안 일정이 우선입니다.',
+      '서드파티 lmu.tools는 11/20에 Weekly Races 칸에 "Prototype Challenge" 카타르(WEC) 90분(LMP2·LMP3)을 월요일 01:00·03:00·05:00 UTC로 표시했습니다. 이름과 클래스가 WEC Weekly(하이퍼카·LMGT3)와 달라서 WEC Weekly 7주차 회차로 넣지 않았습니다. 게임 안 일정에서 확인해 주세요.',
       '주차 전환 시각은 시즌 13 시작 시각(06:00 UTC)으로 계산했습니다. 예전 공식 안내는 화요일 12:00 UTC였으므로 화요일 17:00·20:00 KST 슬롯의 서킷을 게임에서 확인해 주세요. 서드파티 lmu.tools는 11/17 09:00 UTC(화 18:00 KST)에도 Americas 데이토나, Prototype 로드 애틀랜타, LMGT3 롱비치처럼 6주차 서킷을 표시했습니다.',
-      '서드파티 lmu.tools는 11/19에 6시간 몬차와 6시간 실버스톤(12/4~12/6, 시각 없음)을 표시했지만 팀 챔피언십 슬롯은 표시하지 않았습니다. 11/19에는 GMR 7주차 스파를 45분, 토요일 00:00·05:00·08:00 UTC로 표시했지만 공식 공지는 7~8주차 1시간 25분, 수·토 03·08·11·14·18·20시 UTC입니다. Americas는 목요일 11:00·13:00·15:00 UTC, Prototype은 월요일 05:00·08:00·11:00 UTC, LMGT3는 금요일 05:00·08:00·11:00 UTC로 표시했습니다(공식은 Americas 목·일, Prototype 수·월, LMGT3 화·금·일의 08~22시 UTC 7회와 다음 날 00·03시). 공식 공지를 따랐고, 게임 안 일정이 우선입니다.',
+      '서드파티 lmu.tools는 11/20에 6시간 몬차와 6시간 실버스톤(12/4~12/6, 시각 없음), 12/18~20 이벤트(시각 없음)를 표시했지만 팀 챔피언십 슬롯은 표시하지 않았습니다. 11/20에는 GMR 7주차 스파를 45분, 토요일 00:00·05:00·08:00 UTC로 표시했지만 공식 공지는 7~8주차 1시간 25분, 수·토 03·08·11·14·18·20시 UTC입니다. Americas는 일요일 05:00·08:00·11:00 UTC, Prototype은 월요일 05:00·08:00·11:00 UTC, LMGT3는 금요일 11:00·13:00·15:00 UTC로 표시했습니다(공식은 Americas 목·일, Prototype 수·월, LMGT3 화·금·일의 08~22시 UTC 7회와 다음 날 00·03시). 공식 공지를 따랐고, 게임 안 일정이 우선입니다.',
       '종료 시각은 추정치입니다. 세션 시작에 Americas·Prototype·LMGT3는 17분, GMR·WEC Weekly는 15분, 팀 챔피언십은 22분을 더하고 레이스 길이를 합했습니다.'
     ],
-    afterSpecials: '2026-11-19 기준으로 시즌 14 공지는 찾지 못했습니다.'
+    afterSpecials: '2026-11-20 기준으로 시즌 14 공지는 찾지 못했습니다.'
   },
 
   sources: [
@@ -200,6 +225,7 @@ window.LMU_DATA = {
     { label: '스페셜 이벤트 캘린더 2026 Q3·Q4', url: 'https://lemansultimate.com/special-events-calendar-q3-4-2026/' },
     { label: '드라이버 스왑과 팀 레이스 안내', url: 'https://lemansultimate.com/driver-swap-and-team-races-everything-you-need-to-know/' },
     { label: '온라인 챔피언십 안내', url: 'https://lemansultimate.com/online-championships/' },
-    { label: 'lmu.tools 일정(서드파티)', url: 'https://lmu.tools/schedule' }
+    { label: 'lmu.tools 일정(서드파티)', url: 'https://lmu.tools/schedule' },
+    { label: 'LMU 공식 Discord #online-status-schedule (로그인 필요)', url: 'https://discord.com/channels/1197577617482727514/1201913778665705472' }
   ]
 };
