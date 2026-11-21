@@ -111,8 +111,8 @@
  *   afterSpecials Line at the end of the trailing specials section ('' for none).
  */
 window.LMU_DATA = {
-  checkedAt: '2026-11-20T18:00:01+09:00',
-  changeNote: '7일 지난 WEC Weekly 11/12 이몰라 3회차를 지웠습니다.',
+  checkedAt: '2026-11-21T18:00:02+09:00',
+  changeNote: '확인 필요 문구의 lmu.tools 차이 설명을 11/21 기준으로 고쳤습니다.',
   recommend: { series: 'americas', kstWeekday: 'SUN', kstTime: '20:00', label: '기본 추천' },
 
   seasons: [
@@ -212,12 +212,12 @@ window.LMU_DATA = {
     ],
     checks: [
       '6시간 몬차 시각은 LMU 공식 Discord #online-status-schedule 공지(Daily Race Schedule from 17th November 2026) 기준입니다. 다른 스페셜(6시간 실버스톤, 12/18~20 이벤트)은 아직 공식 공지 전이라, 서드파티 lmu.tools에 시각이 보이면 스페셜 카드에 비공식 배지와 함께 따로 표시합니다. 게임 안 일정이 우선입니다.',
-      '서드파티 lmu.tools는 11/20에 Weekly Races 칸에 "Prototype Challenge" 카타르(WEC) 90분(LMP2·LMP3)을 월요일 01:00·03:00·05:00 UTC로 표시했습니다. 이름과 클래스가 WEC Weekly(하이퍼카·LMGT3)와 달라서 WEC Weekly 7주차 회차로 넣지 않았습니다. 게임 안 일정에서 확인해 주세요.',
+      '서드파티 lmu.tools는 11/20~21에 Weekly Races 칸에 "Prototype Challenge" 카타르(WEC) 90분(LMP2·LMP3)을 월요일 01:00·03:00·05:00 UTC로 표시했습니다. 이름과 클래스가 WEC Weekly(하이퍼카·LMGT3)와 달라서 WEC Weekly 7주차 회차로 넣지 않았습니다. 게임 안 일정에서 확인해 주세요.',
       '주차 전환 시각은 시즌 13 시작 시각(06:00 UTC)으로 계산했습니다. 예전 공식 안내는 화요일 12:00 UTC였으므로 화요일 17:00·20:00 KST 슬롯의 서킷을 게임에서 확인해 주세요. 서드파티 lmu.tools는 11/17 09:00 UTC(화 18:00 KST)에도 Americas 데이토나, Prototype 로드 애틀랜타, LMGT3 롱비치처럼 6주차 서킷을 표시했습니다.',
-      '서드파티 lmu.tools는 11/20에 6시간 몬차와 6시간 실버스톤(12/4~12/6, 시각 없음), 12/18~20 이벤트(시각 없음)를 표시했지만 팀 챔피언십 슬롯은 표시하지 않았습니다. 11/20에는 GMR 7주차 스파를 45분, 토요일 00:00·05:00·08:00 UTC로 표시했지만 공식 공지는 7~8주차 1시간 25분, 수·토 03·08·11·14·18·20시 UTC입니다. Americas는 일요일 05:00·08:00·11:00 UTC, Prototype은 월요일 05:00·08:00·11:00 UTC, LMGT3는 금요일 11:00·13:00·15:00 UTC로 표시했습니다(공식은 Americas 목·일, Prototype 수·월, LMGT3 화·금·일의 08~22시 UTC 7회와 다음 날 00·03시). 공식 공지를 따랐고, 게임 안 일정이 우선입니다.',
+      '서드파티 lmu.tools는 11/21에 6시간 몬차와 6시간 실버스톤(12/4~12/6, 시각 없음), 12/18~20 이벤트(시각 없음)를 표시했지만 팀 챔피언십 슬롯은 표시하지 않았습니다. 11/21에는 GMR 7주차 스파를 45분, 토요일 11:00·15:00·17:00 UTC로 표시했지만 공식 공지는 7~8주차 1시간 25분, 수·토 03·08·11·14·18·20시 UTC입니다. Americas는 일요일 05:00·08:00·11:00 UTC, Prototype은 월요일 05:00·08:00·11:00 UTC, LMGT3는 일요일 05:00·08:00·11:00 UTC로 표시했습니다(공식은 Americas 목·일, Prototype 수·월, LMGT3 화·금·일의 08~22시 UTC 7회와 다음 날 00·03시). 공식 공지를 따랐고, 게임 안 일정이 우선입니다.',
       '종료 시각은 추정치입니다. 세션 시작에 Americas·Prototype·LMGT3는 17분, GMR·WEC Weekly는 15분, 팀 챔피언십은 22분을 더하고 레이스 길이를 합했습니다.'
     ],
-    afterSpecials: '2026-11-20 기준으로 시즌 14 공지는 찾지 못했습니다.'
+    afterSpecials: '2026-11-21 기준으로 시즌 14 공지는 찾지 못했습니다.'
   },
 
   sources: [
