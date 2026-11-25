@@ -111,8 +111,8 @@
  *   afterSpecials Line at the end of the trailing specials section ('' for none).
  */
 window.LMU_DATA = {
-  checkedAt: '2026-11-24T18:00:02+09:00',
-  changeNote: '7일이 지난 WEC Weekly 마지막 회차를 지워 시리즈를 뺐고, 확인 필요 문구를 11/24 기준으로 고쳤습니다.',
+  checkedAt: '2026-11-25T18:00:02+09:00',
+  changeNote: 'WEC Weekly 르망 11/26 3회차(KST 10·12·14시)를 추가하고, 확인 필요 문구를 11/25 기준으로 고쳤습니다.',
   recommend: { series: 'americas', kstWeekday: 'SUN', kstTime: '20:00', label: '기본 추천' },
 
   seasons: [
@@ -162,6 +162,13 @@ window.LMU_DATA = {
           tracks: { 7: '스파-프랑코샹', 8: '르망' }
         },
         {
+          id: 'weekly', kind: 'solo', name: 'WEC Weekly', short: 'WEC Weekly', len: 90, lead: 15,
+          classes: ['hy', 'wp2', 'gt3'], req: '슬롯 출처 lmu.tools(서드파티)',
+          oneOff: ['2026-11-26T01:00:00Z', '2026-11-26T03:00:00Z', '2026-11-26T05:00:00Z'],
+          tracks: { 8: '르망 (뮬산)' },
+          note: '서드파티 lmu.tools에는 LMP2로만 표시되어 WEC LMP2로 추정했습니다. 게임 안 일정이 우선입니다.'
+        },
+        {
           id: 'team', kind: 'team', name: 'Team Championship: WEC', short: '팀 챔피언십', len: 360, lead: 22,
           classes: ['hy', 'gt3'],
           req: '라인업 Bronze 3 SR · 드라이버별 B2 이상 · Rookie/Warning 배지 불가 · RaceControl Pro/Pro+',
@@ -200,12 +207,13 @@ window.LMU_DATA = {
     ],
     checks: [
       '6시간 몬차 시각은 LMU 공식 Discord #online-status-schedule 공지(Daily Race Schedule from 17th November 2026) 기준입니다. 다른 스페셜(6시간 실버스톤, 12/18~20 이벤트)은 아직 공식 공지 전이라, 서드파티 lmu.tools에 시각이 보이면 스페셜 카드에 비공식 배지와 함께 따로 표시합니다. 게임 안 일정이 우선입니다.',
-      '서드파티 lmu.tools는 11/24에 Weekly Races 칸에 "Prototype Challenge" 카타르(WEC) 90분(LMP2·LMP3)을 시각 없이 "120분마다"로 표시했습니다. 이름과 클래스가 WEC Weekly(하이퍼카·LMGT3)와 달라서 WEC Weekly 회차로 넣지 않았고, 지난 WEC Weekly 회차는 7일이 지나 지웠습니다. 새 회차는 게임 안 일정에서 확인해 주세요.',
-      '주차 전환 시각은 시즌 13 시작 시각(06:00 UTC)으로 계산했습니다. 공식 온라인 챔피언십 안내는 화요일 12:00 UTC이므로 화요일 17:00·20:00 KST 슬롯의 서킷을 게임에서 확인해 주세요. 서드파티 lmu.tools는 11/24 09:00 UTC(화 18:00 KST)에도 Americas 롱비치, Prototype 이몰라, LMGT3 로드 애틀랜타, GMR 스파처럼 7주차 서킷을 표시했습니다.',
-      '서드파티 lmu.tools는 11/24에 6시간 몬차(시각 없이 "300분마다")와 6시간 실버스톤(12/4~12/6, "다음", 시각 없음), 12/18~20 이벤트(시각 없음)를 표시했지만 팀 챔피언십 슬롯은 표시하지 않았습니다. 11/24에는 GMR 7주차 스파를 45분, 시각 없이 "180분마다"로 표시했지만 공식 공지는 7~8주차 1시간 25분, 수·토 03·08·11·14·18·20시 UTC입니다. Americas·Prototype·LMGT3는 모두 시각 없이 "120분마다"로 표시했습니다(공식은 Americas 목·일, Prototype 수·월, LMGT3 화·금·일의 08~22시 UTC 7회와 다음 날 00·03시). 공식 공지를 따랐고, 게임 안 일정이 우선입니다.',
-      '종료 시각은 추정치입니다. 세션 시작에 Americas·Prototype·LMGT3는 17분, GMR은 15분, 팀 챔피언십은 22분을 더하고 레이스 길이를 합했습니다.'
+      'WEC Weekly 8주차 르망(뮬산) 90분은 서드파티 lmu.tools의 11/25 표시(목 01·03·05시 UTC, 하이퍼카·LMP2·LMGT3)를 그대로 옮긴 회차입니다. 공식 사이트에는 시각이 없으니 게임 안 일정에서 확인해 주세요.',
+      '서드파티 lmu.tools는 11/25에 Special Event 칸에 "4 Hours of Le Castellet" 폴 리카르(ELMS) 240분(하이퍼카·LMP2·LMGT3)을 금 02·07·12시 UTC(11/27 금 KST 11·16·21시로 추정)로 표시했습니다. 공식 스페셜 이벤트 캘린더(2026-10-15)와 뉴스에는 없어서 일정에 넣지 않았습니다. 관심이 있으면 게임 안 일정에서 확인해 주세요.',
+      '주차 전환 시각은 시즌 13 시작 시각(06:00 UTC)으로 계산했습니다. 공식 온라인 챔피언십 안내는 화요일 12:00 UTC이므로 화요일 17:00·20:00 KST 슬롯의 서킷을 게임에서 확인해 주세요. 서드파티 lmu.tools는 11/24 09:00 UTC(화 18:00 KST)까지 7주차 서킷을 표시했고, 11/25 09:00 UTC에는 Americas 로드 애틀랜타, Prototype 실버스톤, LMGT3 데이토나, GMR 르망으로 8주차 서킷을 표시했습니다.',
+      '서드파티 lmu.tools는 11/25에 6시간 실버스톤(12/4~12/6, "다음", 시각 없음)과 12/18~20 이벤트(시각 없음)를 표시했지만 팀 챔피언십 슬롯은 표시하지 않았습니다. 11/25에는 GMR 8주차 르망을 45분, 수 11·15·17시 UTC로 표시했지만 공식 공지는 7~8주차 1시간 25분, 수·토 03·08·11·14·18·20시 UTC입니다. Americas는 목 05·08·11시, Prototype은 수 11·13·15시, LMGT3는 금 05·08·11시 UTC로 표시했습니다(공식은 Americas 목·일, Prototype 수·월, LMGT3 화·금·일의 08·11·14·16·18·20·22시 UTC와 다음 날 00·03시). 공식 공지를 따랐고, 게임 안 일정이 우선입니다.',
+      '종료 시각은 추정치입니다. 세션 시작에 Americas·Prototype·LMGT3는 17분, GMR·WEC Weekly는 15분, 팀 챔피언십은 22분을 더하고 레이스 길이를 합했습니다.'
     ],
-    afterSpecials: '2026-11-24 기준으로 시즌 14 공지는 찾지 못했습니다.'
+    afterSpecials: '2026-11-25 기준으로 시즌 14 공지는 찾지 못했습니다.'
   },
 
   sources: [
